@@ -8,7 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,13 +71,27 @@ public class MainActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getBaseContext(), "Start: " + start + "   Destination: " + destination, Toast.LENGTH_LONG).show();
-                String response = "37A,6";
-                String[] data = response.split(",");
+                BufferedReader reader;
+                String[] record;
                 TextView bus = (TextView) findViewById(R.id.response_bus);
                 TextView price = (TextView) findViewById(R.id.response_price);
-                bus.setText(data[0]);
-                price.setText("$" + data[1]);
+                try {
+                    final InputStream file = getAssets().open("data.txt");
+                    reader = new BufferedReader(new InputStreamReader(file));
+                    String line = reader.readLine();
+                    while(line != null) {
+                        record = line.split(",");
+                        if(record[0].equals(start) && record[1].equals(destination)){
+                            bus.setText(record[2]);
+                            price.setText("$" + record[3]);
+                            break;
+                        }
+                        line = reader.readLine();
+                    }
+                } catch(IOException ioe) {
+                    System.out.println("e");
+                }
+                System.out.println("Start:" + start + "   Destination:" + destination);
             }
         });
     }
