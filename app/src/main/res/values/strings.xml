@@ -2,25 +2,17 @@
 
     <string-array name="start_array">
         <item>HKU</item>
-        <item>CUHK</item>
-        <item>HKUST</item>
-        <item>POLYU</item>
-        <item>CITYU</item>
-        <item>HKBU</item>
-        <item>LINGU</item>
-        <item>OUHK</item>
+        <item>Queen Mary Hospital</item>
+        <item>Central Ferry Piers</item>
+        <item>Wan Chai</item>
     </string-array>
 
     <string-array name="des_array">
         <item>HKU</item>
-        <item>CUHK</item>
-        <item>HKUST</item>
-        <item>POLYU</item>
-        <item>CITYU</item>
-        <item>HKBU</item>
-        <item>LINGU</item>
-        <item>OUHK</item>
+        <item>Queen Mary Hospital</item>
+        <item>Central Ferry Piers</item>
+        <item>Wan Chai</item>
     </string-array>
 
-    <string name="app_name">dank_coders</string>
+    <string name="app_name">Carpe diem</string>
 </resources>

@@ -1,3 +1,12 @@
-HKU,CUHK,37A,6
-CUHK,HKU,1A,7
-POLYU,HKU,4B,13
+HKU,Queen Mary Hospital,37A,$4.7
+HKU,Central Ferry Piers,71,$4.2
+HKU,Wan Chai,40,$4.8
+Queen Mary Hospital,HKU,71,$4.2
+Queen Mary Hospital,Central Ferry Piers,71,$4.2
+Queen Mary Hospital,Wan Chai,40,$4.8
+Central Ferry Piers,Queen Mary Hospital,4,$5.3
+Central Ferry Piers,HKU,4,$5.3
+Central Ferry Piers,Wan Chai,5X,$3.4
+Wan Chai,Queen Mary Hospital,40M,$5.3
+Wan Chai,HKU,40M,$5.3
+Wan Chai,Central Ferry Piers,75,$3.4

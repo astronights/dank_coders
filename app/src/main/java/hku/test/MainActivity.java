@@ -71,25 +71,30 @@ public class MainActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BufferedReader reader;
-                String[] record;
                 TextView bus = (TextView) findViewById(R.id.response_bus);
                 TextView price = (TextView) findViewById(R.id.response_price);
-                try {
-                    final InputStream file = getAssets().open("data.txt");
-                    reader = new BufferedReader(new InputStreamReader(file));
-                    String line = reader.readLine();
-                    while(line != null) {
-                        record = line.split(",");
-                        if(record[0].equals(start) && record[1].equals(destination)){
-                            bus.setText(record[2]);
-                            price.setText("$" + record[3]);
-                            break;
+                if(start.equals(destination)){
+                    bus.setText("N/A");
+                    price.setText("$0");
+                } else {
+                    BufferedReader reader;
+                    String[] record;
+                    try {
+                        final InputStream file = getAssets().open("data.txt");
+                        reader = new BufferedReader(new InputStreamReader(file));
+                        String line = reader.readLine();
+                        while (line != null) {
+                            record = line.split(",");
+                            if (record[0].equals(start) && record[1].equals(destination)) {
+                                bus.setText(record[2]);
+                                price.setText(record[3]);
+                                break;
+                            }
+                            line = reader.readLine();
                         }
-                        line = reader.readLine();
+                    } catch (IOException ioe) {
+                        System.out.println("e");
                     }
-                } catch(IOException ioe) {
-                    System.out.println("e");
                 }
                 System.out.println("Start:" + start + "   Destination:" + destination);
             }
